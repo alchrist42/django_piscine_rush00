@@ -111,5 +111,6 @@ def battle(request):
         case "miss":
             pass
 
-    disabled = JOISTIK | STARSEL 
-    return render(None, 'game/battle.html', {"game": game.dump(), "disabled": disabled})
+    disabled = JOISTIK | STARSEL
+    mov = game.moviemons.get(game.moviemon)
+    return render(None, 'game/battle.html', {"game": game.dump(), "disabled": disabled, "mov": mov})
