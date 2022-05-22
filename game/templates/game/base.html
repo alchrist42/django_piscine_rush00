@@ -14,8 +14,43 @@
     </head>
     <body>
         <div class="body">
-            {% block body %}
-            {% endblock %}
+            <div style="position: relative;">
+                <img src="{% static 'game/main.svg' %}" width="2000" style="position: absolute;">
+                <a class="nav-link" href="{% url 'game:btn_a' %}">
+                    <img src="{% static 'game/btn_a.svg' %}" width="70" style="position: absolute; left: 1740px; top: 381px;">
+                </a>
+                <a class="nav-link" href="{% url 'game:btn_b' %}">
+                    <img src="{% static 'game/btn_b.svg' %}" width="70" style="position: absolute; left: 1820px; top: 311px;">
+                </a>
+            
+                <!-- jostick -->
+                <a class="nav-link" href="{% url 'game:move' 'right' %}">
+                    <img src="{% static 'game/btn_right.svg' %}" width="70" style="position: absolute; left: 220px; top: 301px;">
+                </a>
+                <a class="nav-link" href="{% url 'game:move' 'left' %}">
+                    <img src="{% static 'game/btn_left.svg' %}" width="70" style="position: absolute; left: 120px; top: 301px;">
+                </a>
+                <a class="nav-link" href="{% url 'game:move' 'up' %}">
+                    <img src="{% static 'game/btn_up.svg' %}" width="70" style="position: absolute; left: 170px; top: 251px;">
+                </a>
+                <a class="nav-link" href="{% url 'game:move' 'down' %}">
+                    <img src="{% static 'game/btn_down.svg' %}" width="70" style="position: absolute; left: 170px; top: 351px;">
+                </a>
+            
+                <!-- select start -->
+                <a class="nav-link" href="{% url 'game:start' %}">
+                    <img src="{% static 'game/btn_start.svg' %}" width="70" style="position: absolute; left: 1730px; top: 101px;">
+                </a>
+                <a class="nav-link" href="{% url 'game:select' %}">
+                    <img src="{% static 'game/btn_select.svg' %}" width="70" style="position: absolute; left: 1730px; top: 51px;">
+                </a>
+            
+                <div class="text-light" style="position: absolute; left: 500px; top: 130px;">
+                        {% block body %}
+                        {% endblock %}  
+                </div>
+            </div>
+            
         </div>
     </body>
 </html>
