@@ -9,7 +9,7 @@ Movemon
 <div class="d-flex flex-row">
   <div class="w-75">
     <table class="table table-dark table-bordered text-center ">
-      {% for line in worldmap %}
+      {% for line in game.map %}
       <tr>
         {% for cell in line %}
         <td class="h3">
@@ -19,8 +19,11 @@ Movemon
           <!--  Позиция покемона -->
           {% elif cell == "?" %}
             &#10067;
-          {% else %}
+          <!--  Кактус -->
+          {% elif cell == "#" %}
             &#127797;
+          {% else %}
+            &nbsp;
           {% endif %}
         </td>
         
@@ -31,19 +34,22 @@ Movemon
     </table>
   </div>
   <div class="w-25">
-    <div class="border h-50">
-      <h5>Contact info</h5>
+    <div class="border"  style="height: 48.5%!important">
+      <h5>Player info</h5>
       <ul>
-        <li>5.5 lvl</li>
-        <li>10 movemons catched</li>
+        <li>{{ game.lvl }} LVL</li>
+        <li>{{ game.cautchs|length }} movemons catched</li>
+        <li>{{ game.balls }} moveballs</li>
       </ul>
       
     </div>
-    <div class="border h-50">
-      <ul>
-        <li>20 moveballs</li>
-        <li>5 movemons remaming</li>
-      </ul>
+    <div class="border" style="height: 48.5%!important">
+      {% if game.state == 'found_movemon' %}
+        <p>Found a Movemon!!!</p>
+        <p>Press A to catch</p>
+      {% elif game.state == 'found_moveball' %}
+        <p>Found a 3 moveballs</p>
+      {% endif %}
     </div>
   </div>
 </div>

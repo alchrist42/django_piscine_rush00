@@ -17,53 +17,95 @@
 
 <body>
     <div class="body">
-        <div style="position: relative;">
-            <img src="{% static 'game/main.svg' %}" width="2000" style="position: absolute;">
-            <a class="nav-link" href="{% url 'game:btn_a' %}">
+        <div style="position:absolute;display: flex;justify-content: center;align-items: center;left:10%;top:5%">
+            <img src="{% static 'game/main.svg' %}" width="2000">
+            <a class="nav-link" href="
+                {% if 'btn_a' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:btn_a' %}">
+                {% endif %}
                 <img src="{% static 'game/btn_a.svg' %}" width="70"
                     style="position: absolute; left: 1740px; top: 381px;">
             </a>
-            <a class="nav-link" href="{% url 'game:btn_b' %}">
+            <a class="nav-link" href="
+                {% if 'btn_b' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:btn_b' %}">
+                {% endif %}
                 <img src="{% static 'game/btn_b.svg' %}" width="70"
                     style="position: absolute; left: 1820px; top: 311px;">
             </a>
 
-            <!-- jostick -->
-            <a class="nav-link" href="{% url 'game:move' 'right' %}">
+            <!-- joystick -->
+            <a class="nav-link" href="
+                {% if 'right' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:move' 'right' %}">
+                {% endif %}
                 <img src="{% static 'game/btn_right.svg' %}" width="70"
                     style="position: absolute; left: 220px; top: 301px;">
             </a>
-            <a class="nav-link" href="{% url 'game:move' 'left' %}">
+            <a class="nav-link" href="
+                {% if 'left' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:move' 'left' %}">
+                {% endif %}
                 <img src="{% static 'game/btn_left.svg' %}" width="70"
                     style="position: absolute; left: 120px; top: 301px;">
             </a>
-            <a class="nav-link" href="{% url 'game:move' 'up' %}">
+            <a class="nav-link" href="
+                {% if 'up' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:move' 'up' %}">
+                {% endif %}
                 <img src="{% static 'game/btn_up.svg' %}" width="70"
                     style="position: absolute; left: 170px; top: 251px;">
             </a>
-            <a class="nav-link" href="{% url 'game:move' 'down' %}">
+            <a class="nav-link" href="
+                {% if 'down' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:move' 'down' %}">
+                {% endif %}
                 <img src="{% static 'game/btn_down.svg' %}" width="70"
                     style="position: absolute; left: 170px; top: 351px;">
             </a>
 
             <!-- select start -->
-            <a class="nav-link" href="{% url 'game:start' %}">
-                <img src="{% static 'game/btn_start.svg' %}" width="70"
+            <a class="nav-link" href="
+                {% if 'start' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:start' %}">
+                {% endif %}
+                <img src="{% static 'game/btn_start.svg' %}" width="100"
                     style="position: absolute; left: 1730px; top: 101px;">
             </a>
-            <a class="nav-link" href="{% url 'game:select' %}">
-                <img src="{% static 'game/btn_select.svg' %}" width="70"
+            <a class="nav-link" href="
+                {% if 'select' in disabled %}
+                    #">
+                {% else %}
+                    {% url 'game:select' %}">
+                {% endif %}
+                <img src="{% static 'game/btn_select.svg' %}" width="100"
                     style="position: absolute; left: 1730px; top: 51px;">
             </a>
             <div class="border border-secondary"
                 style="position: absolute; height: 550px; width: 1050px; left: 473px; top: 125px;">
-                <div class="text-light " style="height: 94%;">
+                <div class="text-light " style="    height: 94%;">
                     {% block body %}
                     {% endblock %}
                 </div>
-                <div class="text-success text-center border border-success" style="height: 30px; width: 100;">
+                <div class="text-success text-center border border-success" style="height: 40px;position: relative;bottom: 7px;display: flex;align-items: center;justify-content: center">
+                    {{ game.state }}    /\/\/\
                     {% block footer %}
-                    {% endblock %}
+                    {% endblock %} /\/\/\
+                    {{ disabled }}
                 </div>
             </div>
         </div>

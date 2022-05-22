@@ -1,0 +1,42 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block title %}
+Movemon
+{% endblock title %}
+
+{% block body %}
+<div class="d-flex flex-row">
+  <div class="w-75">
+    <table class="table table-dark table-bordered text-center ">
+      
+    </table>
+  </div>
+  <div class="w-25">
+    <div class="border"  style="height: 48.5%!important">
+      <h5>Player info</h5>
+      <ul>
+        <li>{{ game.catched|length }} movemons catched</li>
+        <li>{{ game.balls }} moveballs</li>
+      </ul>
+      
+    </div>
+    <div class="border" style="height: 48.5%!important">
+      {% if game.state == 'gotcha' %}
+        <p>Catch a Movemon!!!</p>
+        <p>Press A to continue</p>
+      {% elif game.state == 'miss' %}
+        <p>miss ;(</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+press a for start
+</table>
+
+{% endblock %}
