@@ -1,15 +1,10 @@
 import os
 import shutil
 from django.conf import settings
-from settings import IMDB_LIST
-from typing import Dict, List, Tuple
 
-from .moviemon import Moviemon
-from game.views.engine.map import *
-from game.views.engine.map import Tile, get_suitable
+from game.game_logic.moviemon import Moviemon
+from game.views import *
 
-
-import requests
 import json
 import pickle
 import random
@@ -85,11 +80,11 @@ def load_slot(slot):
 
 class GameData:
     def __init__(self) -> None:
-        self.pos: Tuple[int, int] = settings.PLAYER_INIT_POS
-        self.captured_list: List[str] = []
-        self.moviemon: Dict[str, Moviemon] = {}
-        self.movieballCount: int = settings.PLAYER_INIT_MOVBALL
-        self.map: List[List[Tile]] = []
+        self.pos = settings.PLAYER_INIT_POS
+        self.captured_list = []
+        self.moviemon = {}
+        self.movieballCount = settings.PLAYER_INIT_MOVBALL
+        self.map = []
 
     def get_movie(self, moviemon_id):
         return self.moviemon[moviemon_id]

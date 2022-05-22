@@ -18,3 +18,6 @@ def btn_a(request):
 
 def btn_b(request):
     return HttpResponse("pressed B")
+
+# def test_requst(request):
+#     return HttpResponse(str(Moviemon.get_move_by_imdb_id("tt1663662")))

@@ -9,5 +9,6 @@ urlpatterns = [
     path('select', views.select, name='select'),
     path('btn_a', views.btn_a, name='btn_a'),
     path('btn_b', views.btn_b, name='btn_b'),
+    # path('test', views.test_requst, name='test'),
    
 ]

@@ -1,6 +1,7 @@
 import requests
 from django.conf import settings
 
+
 class Moviemon:
     def __init__(self, title, year, director, poster, rating, plot, actors):
         self.title = title
