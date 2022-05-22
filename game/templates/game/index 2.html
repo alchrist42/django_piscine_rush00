@@ -1,0 +1,31 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block title %}
+Movemon
+{% endblock title %}
+
+{% block body %}
+<div id="img_container">
+    <!-- <div id="img_container">
+        <img src="http://jsfiddle.net/img/initializing.png"/>
+        <button class="button"> click here </button>
+    </div> -->
+
+    <img  src="{% static 'game/main.svg' %}" width="1500">
+    <img id="btn_a" src="{% static 'game/btn_a.svg' %}" width="50">
+</div>
+<h4 class="d-flex justify-content-center">Где то здесь появиться наше творение</h4>
+<a class="nav-link" href="{% url 'game:move' 'left' %}">Left</a>
+<a class="nav-link" href="{% url 'game:move' 'right' %}">right</a>
+<a class="nav-link" href="{% url 'game:move' 'up' %}">up</a>
+<a class="nav-link" href="{% url 'game:move' 'down' %}">down</a>
+
+<button class="btn btn-default">
+    
+    <img src="http://i.stack.imgur.com/e2S63.png" width="20" /> Sign In with Facebook
+</button>
+
+</div>
+
+{% endblock %}
