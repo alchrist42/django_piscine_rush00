@@ -1,0 +1,58 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block title %}
+Movemon
+{% endblock title %}
+
+{% block body %}
+<div class="d-flex flex-row">
+  <div class="w-75">
+    <table class="table table-dark table-bordered text-center ">
+      {% for line in worldmap %}
+      <tr>
+        {% for cell in line %}
+        <td class="h3">
+          <!--  Позиция игрока -->
+          {% if cell == "@" %} 
+            &#128050;
+          <!--  Позиция покемона -->
+          {% elif cell == "?" %}
+            &#10067;
+          {% else %}
+            &#127797;
+          {% endif %}
+        </td>
+        
+        <!-- <td style="background-color: {{color}}"></td> -->
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="w-25">
+    <div class="border h-50">
+      <h5>Contact info</h5>
+      <ul>
+        <li>5.5 lvl</li>
+        <li>10 movemons catched</li>
+      </ul>
+      
+    </div>
+    <div class="border h-50">
+      <ul>
+        <li>20 moveballs</li>
+        <li>5 movemons remaming</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+press a for start
+</table>
+
+{% endblock %}

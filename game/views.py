@@ -19,5 +19,9 @@ def btn_a(request):
 def btn_b(request):
     return HttpResponse("pressed B")
 
-# def test_requst(request):
-#     return HttpResponse(str(Moviemon.get_move_by_imdb_id("tt1663662")))
+def worldmap(request):
+    gmap = [["#"] * 10 for _ in range(10)]
+    gmap[5][5] = "@"
+    gmap[3][5] = "?"
+
+    return render(None, 'game/worldmap.html', {"worldmap": gmap})
